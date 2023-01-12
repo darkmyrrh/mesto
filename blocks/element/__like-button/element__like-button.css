@@ -1,8 +1,16 @@
 .element__like-button {
-    background: none;
-    border: none;
-    float: right;
     margin-top: 30px;
     margin-right: 20px;
     margin-bottom: 30px;
+    background: url(../../../images/elements-like.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    float: right;
+    width: 22px;
+    height: 19px;
+}
+
+.element__like-button:active {
+    background: url(../../../images/elements-like-active.svg);
 }

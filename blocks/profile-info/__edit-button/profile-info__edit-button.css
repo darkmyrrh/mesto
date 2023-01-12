@@ -2,8 +2,11 @@
     margin: 0;
     padding: 0;
     border: 1px solid white;
-    background: none;
+    background: url(../../../images/profile-edit.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 10px 10px;
     width: 24px;
     height: 24px;
-    align-self: center;
+    margin-top: 15px;
 }
