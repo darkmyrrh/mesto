@@ -7,3 +7,25 @@
     line-height: 122%;
     color: #545454;
 }
+
+@media screen and (max-width: 939px) {
+    .footer {
+        max-width: 90%;
+    }
+}
+
+@media screen and (max-width: 699px) {
+    .footer {
+        max-width: 88%;
+        font-size: 16px;
+        line-height: 121%;
+        margin-top: 48px;
+        margin-bottom: 36px;
+    }
+}
+
+@media screen and (max-width: 424px) {
+    .footer {
+        font-size: 14px;        
+    }
+}

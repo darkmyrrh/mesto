@@ -8,3 +8,27 @@
     float: left;
     margin-right: 18px;
 }
+
+@media screen and (max-width: 939px) {
+    .profile-info__name {
+        font-size: 36px;
+        line-height: 122%;
+    }
+}
+
+@media screen and (max-width: 699px) {
+    .profile-info__name {
+        font-size: 34px;
+        margin-left: 46px;
+        margin-right: 12px;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 424px) {
+    .profile-info__name {
+        font-size: 27px;
+        margin-right: 10px;
+        text-align: center;
+    }
+}
