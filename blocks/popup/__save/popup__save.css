@@ -7,8 +7,22 @@
     font-style: normal;
     font-weight: 400;
     font-size: 18px;
-    line-height: 22px;
+    line-height: 122%;
     text-align: center;
-    min-width: 358px;
+    width: 83%;
     min-height: 50px;
+    right: -40px;
+    transition: opacity 0.3s linear;
+}
+
+.popup__save:hover {
+    opacity: 0.8;
+}
+
+@media screen and (max-width: 499px) {
+    .popup__save {
+        width: 84%;
+        font-size: 14px;
+        line-height: 121%;
+    }
 }
