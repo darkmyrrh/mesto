@@ -10,22 +10,24 @@
 
 @media screen and (max-width: 939px) {
     .footer {
-        max-width: 90%;
+        width: 88%;
     }
 }
 
 @media screen and (max-width: 699px) {
     .footer {
-        max-width: 88%;
+        width: 100%;
         font-size: 16px;
         line-height: 121%;
         margin-top: 48px;
         margin-bottom: 36px;
+        margin-left: 40px;
     }
 }
 
 @media screen and (max-width: 424px) {
     .footer {
         font-size: 14px;        
+        margin-left: 27px;
     }
 }
