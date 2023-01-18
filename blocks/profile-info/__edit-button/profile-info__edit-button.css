@@ -1,4 +1,4 @@
-.profile-info__edit-bitton {
+.profile-info__edit-button {
     margin: 0;
     padding: 0;
     border: 1px solid white;
@@ -8,11 +8,10 @@
     background-size: 10px 10px;
     width: 24px;
     height: 24px;
-    margin-top: 15px;
 }
 
 @media screen and (max-width: 939px) {
-    .profile-info__edit-bitton {
+    .profile-info__edit-button {
         width: 20px;
         height: 20px;
         background-size: 9px 9px;
@@ -21,16 +20,9 @@
 }
 
 @media screen and (max-width: 699px) {
-    .profile-info__edit-bitton {
+    .profile-info__edit-button {
         width: 18px;
         height: 18px;
         background-size: 7.5px 7.5px;
-        margin-top: 11px;
-    }
-}
-
-@media screen and (max-width: 424px) {
-    .profile-info__edit-bitton {
-        margin-top: 8px;
     }
 }

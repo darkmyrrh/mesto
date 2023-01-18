@@ -2,7 +2,12 @@
     margin: 0;
     padding: 0;
     border-radius: 10px;
+    border: none;
     background-color: white;
     color: black;
-    max-width: 282px;  
+    max-width: 282px;
+    display: grid;
+    grid-template-columns: 1fr min-content;
+    grid-auto-rows: 1fr max-content;
+    column-gap: 21px;
 }

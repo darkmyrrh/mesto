@@ -1,4 +1,4 @@
-.popup__save {
+.form__button {
     margin: 48px auto 37px;
     background: #000000;
     border: none;
@@ -11,18 +11,20 @@
     text-align: center;
     width: 83%;
     min-height: 50px;
-    right: -40px;
     transition: opacity 0.3s linear;
 }
 
-.popup__save:hover {
+.form__button:hover {
     opacity: 0.8;
 }
 
 @media screen and (max-width: 499px) {
-    .popup__save {
+    .form__button {
         width: 84%;
         font-size: 14px;
         line-height: 121%;
+        margin-top: 45px;
+        margin-bottom: 25px;
+        min-height: 46px;
     }
 }

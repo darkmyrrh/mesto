@@ -1,18 +1,17 @@
-.popup__title {
-    margin: 34px 64px 0 36px;
+.form__heading {
+    margin: 34px 64px 54px 36px;
     padding: 0;
     font-style: normal;
     font-weight: 900;
     font-size: 24px;
     line-height: 121%;
-    max-width: 330px;
+    width: 83%;
 }
 
 @media screen and (max-width: 499px) {
-    .popup__title {
-        margin: 25px 22px 0;
-        max-width: 238px;
-        font-weight: 900;
+    .form__heading {
+        margin: 25px 22px 75px;
+        width: 84%;
         font-size: 18px;
         line-height: 122%;
     }

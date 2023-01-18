@@ -9,11 +9,18 @@
     grid-auto-rows: 1fr;
     row-gap: 20px;
     column-gap: 17px;
-    justify-items: center;
+    justify-items: center;    
+    list-style: none;
 }
 
 @media screen and (max-width: 939px) {
     .elements {
         max-width: 88%;
+    }
+}
+
+@media screen and (max-width: 699px) {
+    .elements {
+        margin-top: 36px;
     }
 }

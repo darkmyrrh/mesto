@@ -5,6 +5,8 @@
     display: grid;
     grid-template-columns: 1fr minmax(336px, 4fr) 1fr;
     grid-template-rows: auto;
+    column-gap: 30px;
+    align-content: center;
 }
 
 @media screen and (max-width: 939px) {
@@ -16,6 +18,6 @@
 @media screen and (max-width: 699px) {
     .profile {
         justify-items: center;
-        grid-template-columns: 1fr;
+        grid-template-columns: auto;
     }
 }
