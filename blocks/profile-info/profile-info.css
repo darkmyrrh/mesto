@@ -8,6 +8,7 @@
     align-self: center;
     row-gap: 16px;
     column-gap: 18px;
+    max-width: 336px;
 }
 
 @media screen and (max-width: 699px) {
