@@ -10,4 +10,5 @@
     grid-template-columns: 1fr min-content;
     grid-auto-rows: 1fr max-content;
     column-gap: 21px;
+    position: relative;
 }
