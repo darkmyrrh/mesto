@@ -1,9 +1,9 @@
 .profile-info {
     margin: 0;
     padding: 0;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 1fr min-content;
+    grid-template-rows: 1fr;
     align-items: center;
     align-self: center;
     row-gap: 16px;

@@ -8,6 +8,7 @@
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+    grid-column: span 2;
 }
 
 @media screen and (max-width: 699px) {
