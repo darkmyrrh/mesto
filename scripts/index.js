@@ -60,7 +60,7 @@ function editUser() {
     jobInput.value = profileDescription.textContent;
 }
 
-function addNewPlace() {
+function openPopupAddNewPlace() {
     openPopup(popupAddNewPlace);
 } 
 
@@ -72,6 +72,10 @@ closePopupButtons.forEach(function (closePopupButton){
     closePopupButton.addEventListener("click", function() {
         const activePopup = closePopupButton.closest(".popup");
         closePopup(activePopup);
+        if (activePopup === popupAddNewPlace) {
+            placeName.value = "";
+            placeLink.value = "";
+        }
     });
 });
 
@@ -92,7 +96,7 @@ function submitFormAddNewPlace (e) {
 
 renderInitialCards();
 editProfileButton.addEventListener("click", editUser);
-addNewPlaceButton.addEventListener("click", addNewPlace);
+addNewPlaceButton.addEventListener("click", openPopupAddNewPlace);
 formEditProfile.addEventListener('submit', submitFormEditUser);
 formAddNewPlace.addEventListener('submit', submitFormAddNewPlace);
 
