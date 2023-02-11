@@ -1,8 +1,8 @@
 const editProfileButton = document.querySelector(".profile-info__edit-button");
 const profileName = document.querySelector(".profile-info__name");
 const profileDescription = document.querySelector(".profile-info__description");
-const nameInput = document.querySelector(".form__item_el_name");
-const jobInput = document.querySelector(".form__item_el_job");
+const nameInput = document.querySelector(".form__input_el_name");
+const jobInput = document.querySelector(".form__input_el_job");
 const closePopupButtons = document.querySelectorAll(".popup__close");
 const formEditProfile = document.querySelector(".popup__container_edit-form");
 const formAddNewPlace = document.querySelector(".popup__container_add-form");
@@ -15,8 +15,20 @@ const elementTemplate = document.querySelector(".element-template").content;
 const figure = document.querySelector(".figure");
 const figureImage = figure.querySelector(".figure__image");
 const figureCaption = figure.querySelector(".figure__caption");
-const placeName = document.querySelector(".form__item_el_place");
-const placeLink = document.querySelector(".form__item_el_link");
+const placeName = document.querySelector(".form__input_el_place");
+const placeLink = document.querySelector(".form__input_el_link");
+const popupList = Array.from(document.querySelectorAll(".popup"));
+
+popupList.forEach(function (popup) {
+    document.addEventListener('keydown', (e) => {
+        if (e.code === 'Escape') {
+            closePopup(popup);
+        }
+    });
+});
+
+
+
 
 function renderInitialCards() {
     const cards = initialCards.map((element) => {
@@ -93,6 +105,8 @@ function submitFormAddNewPlace (e) {
     closePopup(popupAddNewPlace);
     e.target.reset();
 };
+
+
 
 renderInitialCards();
 editProfileButton.addEventListener("click", editUser);

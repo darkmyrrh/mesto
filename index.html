@@ -28,22 +28,26 @@
             <section class="popup popup_edit">
                 <div class="popup__container popup__container_edit-form">
                     <button type="button" class="popup__close root__button"></button>
-                    <form class="form" name="editprofile">                        
+                    <form class="form" name="editprofile" novalidate>              
                         <h2 class="form__heading">Редактировать профиль</h2>
-                        <input type="text" placeholder="Имя" class="form__item form__item_el_name">
-                        <input type="text" placeholder="Вид деятельности" class="form__item form__item_el_job">
-                        <button type="submit" class="form__button">Сохранить</button>
+                        <input type="text" placeholder="Имя" class="form__input form__input_el_name" minlength="2" maxlength="40" required id="name-input">
+                        <span class="fotm__input-error name-input-error"></span>
+                        <input type="text" placeholder="Вид деятельности" class="form__input form__input_el_job" minlength="2" maxlength="200" required id="job-input">
+                        <span class="fotm__input-error job-input-error"></span>
+                        <button type="submit" class="form__submit">Сохранить</button>
                     </form>
                 </div>
             </section>
             <section class="popup popup_add">
                 <div class="popup__container popup__container_add-form">
                     <button type="button" class="popup__close root__button"></button>
-                    <form class="form" name="addnew">                        
+                    <form class="form" name="addnew" novalidate>
                         <h2 class="form__heading">Новое место</h2>
-                        <input type="text" class="form__item form__item_el_place" placeholder="Название">
-                        <input type="text" class="form__item form__item_el_link" placeholder="Ссылка на картинку">
-                        <button type="submit" class="form__button">Сохранить</button>
+                        <input type="text" class="form__input form__input_el_place" placeholder="Название" minlength="2" maxlength="30" required id="place-input">
+                        <span class="fotm__input-error place-input-error"></span>
+                        <input type="url" class="form__input form__input_el_link" placeholder="Ссылка на картинку" required id="link-input">
+                        <span class="fotm__input-error link-input-error"></span>
+                        <button type="submit" class="form__submit">Сохранить</button>
                     </form>
                 </div>
             </section>
@@ -67,8 +71,9 @@
         </template>
         <footer class="footer">
             <p>&#169; 2020 Mesto Russia</p>
-        </footer>
-        <script src="./scripts/constants.js"></script>
-        <script src="./scripts/index.js"></script>        
+        </footer>        
+        <script src="./scripts/constants.js"></script>        
+        <script src="./scripts/index.js"></script>
+        <script src="./scripts/validate.js"></script>  
     </body>
 </html>
