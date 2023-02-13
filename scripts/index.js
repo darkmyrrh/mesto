@@ -88,7 +88,16 @@ closePopupButtons.forEach(function (closePopupButton){
             placeName.value = "";
             placeLink.value = "";
         }
+        const spanMessages = document.querySelectorAll(".form__input-error");
+        spanMessages.forEach((spanMessage) => {
+            spanMessage.textContent = "";
+        });
+        const inputs = document.querySelectorAll(".form__input");
+        inputs.forEach((input) => {
+            input.classList.remove("form__input_type_error");
+        })
     });
+    
 });
 
 function submitFormEditUser (evt) {
@@ -106,7 +115,11 @@ function submitFormAddNewPlace (e) {
     e.target.reset();
 };
 
-
+document.addEventListener("click", (e) => {
+    if (e.currentTarget.classList.includes("popup_opened")) {
+        closePopup(target);
+    }
+});
 
 renderInitialCards();
 editProfileButton.addEventListener("click", editUser);
