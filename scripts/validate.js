@@ -59,3 +59,5 @@ const checkValidity = (formElement, inputElement) => {
       buttonElement.removeAttribute('disabled');
     }
   };
+
+  enableValidation(config);

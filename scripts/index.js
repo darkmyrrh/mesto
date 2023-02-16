@@ -55,8 +55,7 @@ function createCard(element) {
 }
 
 function openPopup(popup) {    
-    popup.classList.add("popup_opened");
-    enableValidation(config);
+    popup.classList.add("popup_opened");    
 };
 
 
