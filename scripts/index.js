@@ -18,15 +18,8 @@ const figureCaption = figure.querySelector(".figure__caption");
 const placeName = document.querySelector(".form__input_el_place");
 const placeLink = document.querySelector(".form__input_el_link");
 const popupList = Array.from(document.querySelectorAll(".popup"));
-
-popupList.forEach(function (popup) {
-    document.addEventListener('keydown', (e) => {
-        if (e.code === 'Escape') {
-            closePopup(popup);
-        }
-    });
-});
-
+const inputs = Array.from(document.querySelectorAll(".form__input"));
+const spanMessages = Array.from(document.querySelectorAll(".form__input-error"));
 
 
 
@@ -61,13 +54,14 @@ function createCard(element) {
     return card;
 }
 
-function openPopup(popup) {
+function openPopup(popup) {    
     popup.classList.add("popup_opened");
+    enableValidation(config);
 };
 
 
 function editUser() {
-    openPopup(popupEditProfile);
+    openPopup(popupEditProfile);    
     nameInput.value = profileName.textContent;
     jobInput.value = profileDescription.textContent;
 }
@@ -88,11 +82,9 @@ closePopupButtons.forEach(function (closePopupButton){
             placeName.value = "";
             placeLink.value = "";
         }
-        const spanMessages = document.querySelectorAll(".form__input-error");
         spanMessages.forEach((spanMessage) => {
             spanMessage.textContent = "";
-        });
-        const inputs = document.querySelectorAll(".form__input");
+        });        
         inputs.forEach((input) => {
             input.classList.remove("form__input_type_error");
         })
@@ -110,15 +102,22 @@ function submitFormEditUser (evt) {
 function submitFormAddNewPlace (e) {
     e.preventDefault();
     const card = createCard({name: placeName.value, link: placeLink.value});
-    elements.prepend(card);    
+    elements.prepend(card);
     closePopup(popupAddNewPlace);
     e.target.reset();
 };
 
+
+popupList.forEach(function (popup) {
+    document.addEventListener('keydown', (e) => {
+        if (e.code === 'Escape') {
+            closePopup(popup);
+        }
+    });
+});
+
 document.addEventListener("click", (e) => {
-    if (e.currentTarget.classList.includes("popup_opened")) {
-        closePopup(target);
-    }
+    closePopup(e.target);
 });
 
 renderInitialCards();
@@ -126,6 +125,7 @@ editProfileButton.addEventListener("click", editUser);
 addNewPlaceButton.addEventListener("click", openPopupAddNewPlace);
 formEditProfile.addEventListener('submit', submitFormEditUser);
 formAddNewPlace.addEventListener('submit', submitFormAddNewPlace);
+
 
 
 
