@@ -15,10 +15,10 @@
                 <img src="./images/profile-avatar.jpg" alt="Фото пользователя" class="avatar">
                 <div class="profile-info">
                     <h1 class="profile-info__name">Жак-Ив Кусто</h1>
-                    <button type="button" class="profile-info__edit-button root__button"></button>
+                    <button type="button" aria-label="Редактировать" class="profile-info__edit-button root__button"></button>
                     <p class="profile-info__description">Исследователь океана</p>
                 </div>                 
-                <button type="button" class="profile__add-button root__button"></button>
+                <button type="button" aria-label="Добавить" class="profile__add-button root__button"></button>
             </section>
             <section class="photo-grid">
                 <ul class="elements">
@@ -27,7 +27,7 @@
             </section>
             <section class="popup popup_edit">
                 <div class="popup__container popup__container_edit-form">
-                    <button type="button" class="popup__close root__button"></button>
+                    <button type="button" aria-label="Закрыть" class="popup__close root__button"></button>
                     <form class="form" name="editprofile" novalidate>              
                         <h2 class="form__heading">Редактировать профиль</h2>
                         <input type="text" placeholder="Имя" class="form__input form__input_el_name" minlength="2" maxlength="40" required id="name-input" autofocus>
@@ -40,7 +40,7 @@
             </section>
             <section class="popup popup_add">
                 <div class="popup__container popup__container_add-form">
-                    <button type="button" class="popup__close root__button"></button>
+                    <button type="button" aria-label="Закрыть" class="popup__close root__button"></button>
                     <form class="form" name="addnew" novalidate>
                         <h2 class="form__heading">Новое место</h2>
                         <input type="text" class="form__input form__input_el_place" placeholder="Название" minlength="2" maxlength="30" required id="place-input" autofocus>
@@ -53,7 +53,7 @@
             </section>
             <section class="popup popup_dark popup_image">
                 <div class="popup__container popup__container_figure">
-                    <button type="button" class="popup__close root__button"></button>
+                    <button type="button" aria-label="Закрыть" class="popup__close root__button"></button>
                     <figure class="figure">
                     <img src="image.jpg" alt="" class="figure__image">
                     <figcaption class="figure__caption"></figcaption>
@@ -65,15 +65,15 @@
             <article class="element">
                 <img src="image.jpg" alt="" class="element__image">
                 <h2 class="element__title"></h2>
-                <button type="button" class="element__like-button"></button>
-                <button type="button" class="element__delete-button"></button>
+                <button type="button" aria-label="Нравится" class="element__like-button"></button>
+                <button type="button" aria-label="Удалить" class="element__delete-button"></button>
             </article>
         </template>
         <footer class="footer">
             <p>&#169; 2020 Mesto Russia</p>
         </footer>        
-        <script src="./scripts/constants.js"></script>        
-        <script src="./scripts/validate.js"></script>
-        <script src="./scripts/index.js"></script>
+        <script defer src="./scripts/constants.js"></script>
+        <script defer src="./scripts/index.js"></script>
+        <script defer src="./scripts/validate.js"></script>
     </body>
 </html>

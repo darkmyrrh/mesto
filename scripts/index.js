@@ -17,16 +17,11 @@ const figureImage = figure.querySelector(".figure__image");
 const figureCaption = figure.querySelector(".figure__caption");
 const placeName = document.querySelector(".form__input_el_place");
 const placeLink = document.querySelector(".form__input_el_link");
-const popupList = Array.from(document.querySelectorAll(".popup"));
 const inputs = Array.from(document.querySelectorAll(".form__input"));
 const spanMessages = Array.from(document.querySelectorAll(".form__input-error"));
 
-
-
 function renderInitialCards() {
-    const cards = initialCards.map((element) => {
-        return createCard(element);
-    });
+    const cards = initialCards.map((createCard));
     elements.append(...cards);
 }
 
@@ -48,76 +43,84 @@ function createCard(element) {
         figureCaption.textContent = cardTitle.textContent;
     });
     card.querySelector(".element__like-button").addEventListener("click", (evt) => {
-        evt.target.classList.toggle("element__like-button_active");        
+        evt.target.classList.toggle("element__like-button_active");
     });
     card.querySelector(".element__delete-button").addEventListener("click", deleteCard);
     return card;
 }
 
-function openPopup(popup) {    
-    popup.classList.add("popup_opened");    
+function openPopup(popup) {
+    popup.classList.add("popup_opened");
+    document.addEventListener('keydown', closePopupByEscape);
+    resetErrorText();
 };
 
 
 function editUser() {
-    openPopup(popupEditProfile);    
+    openPopup(popupEditProfile);
     nameInput.value = profileName.textContent;
     jobInput.value = profileDescription.textContent;
 }
 
 function openPopupAddNewPlace() {
     openPopup(popupAddNewPlace);
-} 
+    placeName.value = "";
+    placeLink.value = "";
+}
 
 function closePopup(popup) {
-     popup.classList.remove("popup_opened");   
+    popup.classList.remove("popup_opened");
+    document.removeEventListener('keydown', closePopupByEscape);
 };
 
-closePopupButtons.forEach(function (closePopupButton){
-    closePopupButton.addEventListener("click", function() {
+closePopupButtons.forEach(function (closePopupButton) {
+    closePopupButton.addEventListener("click", function () {
         const activePopup = closePopupButton.closest(".popup");
         closePopup(activePopup);
-        if (activePopup === popupAddNewPlace) {
-            placeName.value = "";
-            placeLink.value = "";
-        }
-        spanMessages.forEach((spanMessage) => {
-            spanMessage.textContent = "";
-        });        
-        inputs.forEach((input) => {
-            input.classList.remove("form__input_type_error");
-        })
     });
-    
+
 });
 
-function submitFormEditUser (evt) {
-    evt.preventDefault();
+function submitFormEditUser(e) {
+    e.preventDefault();
     profileName.textContent = nameInput.value;
     profileDescription.textContent = jobInput.value;
     closePopup(popupEditProfile);
 };
 
-function submitFormAddNewPlace (e) {
+function submitFormAddNewPlace(e) {
     e.preventDefault();
-    const card = createCard({name: placeName.value, link: placeLink.value});
+    const card = createCard({ name: placeName.value, link: placeLink.value });
     elements.prepend(card);
     closePopup(popupAddNewPlace);
     e.target.reset();
+    /* я оставила сброс только здесь вместо сабмита при валидации, 
+    поскольку в противном случае также сбрасываюся значения 
+    у формы редактирования профиля, а этого происходить не должно. */
 };
 
-
-popupList.forEach(function (popup) {
-    document.addEventListener('keydown', (e) => {
-        if (e.code === 'Escape') {
-            closePopup(popup);
-        }
-    });
-});
+function closePopupByEscape(e) {
+    if (e.code === 'Escape') {
+       const openedPopup = document.querySelector(".popup_opened");
+        closePopup(openedPopup);
+    }
+};
 
 document.addEventListener("click", (e) => {
-    closePopup(e.target);
+    if (e.target.classList.contains('popup_opened')) {
+        closePopup(e.target);
+    }
 });
+
+function resetErrorText() {
+    spanMessages.forEach((spanMessage) => {
+        spanMessage.textContent = "";
+    });
+    inputs.forEach((input) => { 
+        input.classList.remove("form__input_type_error"); 
+    });
+}
+
 
 renderInitialCards();
 editProfileButton.addEventListener("click", editUser);
