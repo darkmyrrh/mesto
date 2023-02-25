@@ -64,8 +64,7 @@ function editUser() {
 
 function openPopupAddNewPlace() {
     openPopup(popupAddNewPlace);
-    placeName.value = "";
-    placeLink.value = "";
+    formAddNewPlace.reset();
 }
 
 function closePopup(popup) {
@@ -94,9 +93,6 @@ function submitFormAddNewPlace(e) {
     elements.prepend(card);
     closePopup(popupAddNewPlace);
     e.target.reset();
-    /* я оставила сброс только здесь вместо сабмита при валидации, 
-    поскольку в противном случае также сбрасываюся значения 
-    у формы редактирования профиля, а этого происходить не должно. */
 };
 
 function closePopupByEscape(e) {
