@@ -1,3 +1,13 @@
+import {Card} from "./card.js";
+import { Validator } from "./validator.js";
+
+const initialCards = [{name: "Энгельс", link: "images/elements-engels.jpg"},
+{name: "Сочи", link: "images/elements-sochi.jpg"},
+{name: "Санкт-Петербург", link: "images/elements-stpetersburg.jpg"},
+{name: "Хвалынск", link: "images/elements-khvalynsk.jpg"},
+{name: "Воронеж", link: "images/elements-voronezh.jpg"},
+{name: "Выборг", link: "images/elements-vyborg.jpg"}];
+
 const editProfileButton = document.querySelector(".profile-info__edit-button");
 const profileName = document.querySelector(".profile-info__name");
 const profileDescription = document.querySelector(".profile-info__description");
@@ -9,45 +19,22 @@ const formAddNewPlace = document.querySelector(".popup__container_add-form");
 const addNewPlaceButton = document.querySelector(".profile__add-button");
 const popupEditProfile = document.querySelector(".popup_edit");
 const popupAddNewPlace = document.querySelector(".popup_add");
-const popupShowFigure = document.querySelector(".popup_image");
+
 const elements = document.querySelector(".elements");
-const elementTemplate = document.querySelector(".element-template").content;
-const figure = document.querySelector(".figure");
-const figureImage = figure.querySelector(".figure__image");
-const figureCaption = figure.querySelector(".figure__caption");
+
 const placeName = document.querySelector(".form__input_el_place");
 const placeLink = document.querySelector(".form__input_el_link");
 const inputs = Array.from(document.querySelectorAll(".form__input"));
 const spanMessages = Array.from(document.querySelectorAll(".form__input-error"));
 
-function renderInitialCards() {
-    const cards = initialCards.map((createCard));
-    elements.append(...cards);
-}
+initialCards.forEach((item) => {
+    const card = new Card(item, '.element-template');
+    const cardElement = card.generateCard();
+    elements.append(cardElement);
+  });
 
-function deleteCard(evt) {
-    evt.target.closest(".element").remove();
-}
+const addNewPlace = new Validator(formAddNewPlace);
 
-function createCard(element) {
-    const card = elementTemplate.cloneNode(true);
-    const cardImage = card.querySelector(".element__image");
-    cardImage.src = element.link;
-    cardImage.alt = element.name;
-    const cardTitle = card.querySelector(".element__title");
-    cardTitle.textContent = element.name;
-    cardImage.addEventListener("click", () => {
-        openPopup(popupShowFigure);
-        figureImage.src = cardImage.src;
-        figureImage.alt = cardImage.alt;
-        figureCaption.textContent = cardTitle.textContent;
-    });
-    card.querySelector(".element__like-button").addEventListener("click", (evt) => {
-        evt.target.classList.toggle("element__like-button_active");
-    });
-    card.querySelector(".element__delete-button").addEventListener("click", deleteCard);
-    return card;
-}
 
 function openPopup(popup) {
     popup.classList.add("popup_opened");
@@ -64,7 +51,7 @@ function editUser() {
 
 function openPopupAddNewPlace() {
     openPopup(popupAddNewPlace);
-    formAddNewPlace.reset();
+    addNewPlace.enableValidation();
 }
 
 function closePopup(popup) {
@@ -89,8 +76,9 @@ function submitFormEditUser(e) {
 
 function submitFormAddNewPlace(e) {
     e.preventDefault();
-    const card = createCard({ name: placeName.value, link: placeLink.value });
-    elements.prepend(card);
+    const card = new Card({ name: placeName.value, link: placeLink.value }, '.element-template');
+    const cardElement = card.generateCard();
+    elements.prepend(cardElement);
     closePopup(popupAddNewPlace);
     e.target.reset();
 };
@@ -118,7 +106,7 @@ function resetErrorText() {
 }
 
 
-renderInitialCards();
+
 editProfileButton.addEventListener("click", editUser);
 addNewPlaceButton.addEventListener("click", openPopupAddNewPlace);
 formEditProfile.addEventListener('submit', submitFormEditUser);
