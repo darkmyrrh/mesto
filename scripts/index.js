@@ -1,4 +1,4 @@
-import {Card} from './Сard.js';
+import {Card} from './Card.js';
 import { FormValidator } from './FormValidator.js';
 
 const initialCards = [{name: 'Энгельс', link: 'images/elements-engels.jpg'},
