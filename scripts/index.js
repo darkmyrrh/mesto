@@ -107,7 +107,7 @@ function submitFormAddNewPlace(e) {
     elements.prepend(cardElement);
     closePopup(popupAddNewPlace);
     validatorFormAddNewPlace.disableButton(); 
-    //добавила так же блокировку кнопки здесь, 
+    //добавила также блокировку кнопки здесь, 
     // т.к., если не заблокировать сразу после отправки, 
     // при быстром нажатии Enter могут добавляться пустые карточки 
     e.target.reset();
