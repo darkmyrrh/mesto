@@ -21,8 +21,7 @@ export class FormValidator {
     errorElement.classList.remove(this.config.errorClass);
     errorElement.textContent = '';
  }
- _checkValidity(inputElement) {
-  
+ _checkValidity(inputElement) {  
       if (!inputElement.validity.valid) {
         this._showError(inputElement, inputElement.validationMessage);
     } else {
@@ -47,6 +46,7 @@ export class FormValidator {
   resetErrorText() {
     this._inputList.forEach((inputElement) => {
     this._hideError(inputElement);
+    this.disableButton();
   });
   }
 
@@ -56,7 +56,7 @@ export class FormValidator {
     });
   };
 
-  _disableButton() {
+  disableButton() {
       this._buttonElement.classList.add(this.config.inactiveButtonClass);
       this._buttonElement.setAttribute('disabled', 'disabled');
     };
@@ -69,7 +69,7 @@ export class FormValidator {
 
   _toggleButtonState() {
       if (this._hasInvalidInput()) {
-        this._disableButton();
+        this.disableButton();
       } else {
         this._enableButton();
       }

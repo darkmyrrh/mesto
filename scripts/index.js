@@ -33,12 +33,15 @@ const popupShowFigure = document.querySelector('.popup_image');
 const elements = document.querySelector('.elements');
 const placeName = document.querySelector('.form__input_el_place');
 const placeLink = document.querySelector('.form__input_el_link');
+const figure = document.querySelector('.figure');
+export const figureImage = figure.querySelector('.figure__image');
+export const figureCaption = figure.querySelector('.figure__caption');
 
-const addNewPlaceValidator = new FormValidator(formAddNewPlace, config);
-const editProfileValidator = new FormValidator(formEditProfile, config);
+const validatorFormAddNewPlace = new FormValidator(formAddNewPlace, config);
+const validatorFormEditProfile = new FormValidator(formEditProfile, config);
 
-editProfileValidator.enableValidation();
-addNewPlaceValidator.enableValidation();
+validatorFormEditProfile.enableValidation();
+validatorFormAddNewPlace.enableValidation();
 
 
 initialCards.forEach((item) => {
@@ -61,19 +64,20 @@ function openPopup(popup) {
 
 function editUser() {    
     openPopup(popupEditProfile);
-    editProfileValidator.resetErrorText();
+    validatorFormEditProfile.resetErrorText();
     nameInput.value = profileName.textContent;
     jobInput.value = profileDescription.textContent;    
 }
 
 function openPopupAddNewPlace() {     
     openPopup(popupAddNewPlace);
-    addNewPlaceValidator.resetErrorText();  
+    validatorFormAddNewPlace.resetErrorText();  
     formAddNewPlace.reset();
 }
 
 function openPopupFigure() {
     openPopup(popupShowFigure);
+    
 }
 
 
@@ -102,6 +106,10 @@ function submitFormAddNewPlace(e) {
     const cardElement = createCard(placeName.value, placeLink.value);
     elements.prepend(cardElement);
     closePopup(popupAddNewPlace);
+    validatorFormAddNewPlace.disableButton(); 
+    //добавила так же блокировку кнопки здесь, 
+    // т.к., если не заблокировать сразу после отправки, 
+    // при быстром нажатии Enter могут добавляться пустые карточки 
     e.target.reset();
 };
 

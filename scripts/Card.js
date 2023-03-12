@@ -1,9 +1,16 @@
+import { figureImage, figureCaption } from "./index.js";
+
+//Еще один использованный мной вариант - прописать figureImage и figureCaption в аргументах конструктора и передать при создании экземпляра класса.
+//Оба варианта работают. Поскольку в комментарии было указано "импортировать", я импортировала переменные сюда.
+
 export class Card {
   constructor(data, templateSelector, openPopupFigure) {
         this._image = data.link;
         this._title = data.name;
         this._templateSelector = templateSelector;
         this.openPopupFigure = openPopupFigure;
+        this.figureImage = figureImage;
+        this.figureCaption = figureCaption;
     }    
     
     _getTemplate() {
@@ -40,12 +47,9 @@ export class Card {
     }
 
     _handleOpenPopup() {
-      const elementImage = this._getElementImage(this._element);
-      const figureImage = document.querySelector('.figure__image');
-      const figureCaption = document.querySelector('.figure__caption');
-      figureImage.src = elementImage.src;
-      figureImage.alt = elementImage.alt;
-      figureCaption.textContent = this._title;
+      this.figureImage.src = this._image;
+      this.figureImage.alt = this._title;
+      this.figureCaption.textContent = this._title;
       
     }
     _setEventListeners() {      
