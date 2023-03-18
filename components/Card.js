@@ -1,16 +1,11 @@
-import { figureImage, figureCaption } from "./index.js";
-
-//Еще один использованный мной вариант - прописать figureImage и figureCaption в аргументах конструктора и передать при создании экземпляра класса.
-//Оба варианта работают. Поскольку в комментарии было указано "импортировать", я импортировала переменные сюда.
+import PopupWithImage from './PopupWithImage.js';
 
 export class Card {
-  constructor(data, templateSelector, openPopupFigure) {
+  constructor(data, templateSelector, handleCardClick) {
         this._image = data.link;
         this._title = data.name;
         this._templateSelector = templateSelector;
-        this.openPopupFigure = openPopupFigure;
-        this.figureImage = figureImage;
-        this.figureCaption = figureCaption;
+        this.handleCardClick = handleCardClick;
     }    
     
     _getTemplate() {
@@ -45,12 +40,13 @@ export class Card {
       const likeButton = this._getLikeButton(this._element);
       likeButton.classList.toggle('element__like-button_active');
     }
+    handleCardClick() {
+      
+    }
 
     _handleOpenPopup() {
-      this.figureImage.src = this._image;
-      this.figureImage.alt = this._title;
-      this.figureCaption.textContent = this._title;
-      
+      const largeImage = new PopupWithImage({image: this._image, title: this._title}, '.popup_image');
+      largeImage.open();      
     }
     _setEventListeners() {      
       const likeButton = this._getLikeButton(this._element);
@@ -62,7 +58,6 @@ export class Card {
             this._deleteCard();
           }); 
       elementImage.addEventListener('click', () => {
-             this.openPopupFigure();
              this._handleOpenPopup();
           });
   }
