@@ -1,5 +1,3 @@
-import PopupWithImage from './PopupWithImage.js';
-
 export class Card {
   constructor(data, templateSelector, handleCardClick) {
         this._image = data.link;
@@ -40,14 +38,7 @@ export class Card {
       const likeButton = this._getLikeButton(this._element);
       likeButton.classList.toggle('element__like-button_active');
     }
-    handleCardClick() {
-      
-    }
-
-    _handleOpenPopup() {
-      const largeImage = new PopupWithImage({image: this._image, title: this._title}, '.popup_image');
-      largeImage.open();      
-    }
+    
     _setEventListeners() {      
       const likeButton = this._getLikeButton(this._element);
       const elementImage = this._getElementImage(this._element);
@@ -58,7 +49,7 @@ export class Card {
             this._deleteCard();
           }); 
       elementImage.addEventListener('click', () => {
-             this._handleOpenPopup();
+             this.handleCardClick(this._image, this._title);
           });
   }
 }

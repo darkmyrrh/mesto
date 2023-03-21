@@ -13,7 +13,7 @@ export default class Popup {
 
     _handleEscClose(e) {        
         if (e.code === 'Escape') {            
-            this.close();            
+            this.close();
          }
     }
     setEventListeners() {
