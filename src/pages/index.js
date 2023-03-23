@@ -19,18 +19,26 @@ import {initialCards,
 
 
 const userInfo = new UserInfo(profileName, profileDescription);
+const popupImage = new PopupWithImage('.popup_image');
 const validatorFormAddNewPlace = new FormValidator(formAddNewPlace, config);
 const validatorFormEditProfile = new FormValidator(formEditProfile, config);
 const popupEditProfile = new PopupWithForm({form: formEditProfile, handleFormSubmit: (formData) => {
     userInfo.setUserInfo(formData.user, formData.job);
+    validatorFormEditProfile.disableButton();
 }}, '.popup_edit');
 const popupAddNewPlace = new PopupWithForm({form: formAddNewPlace, handleFormSubmit: (formData) => {
     const cardElement = createCard(formData.name, formData.link);
     cardList.addItem(cardElement);
+    validatorFormAddNewPlace.disableButton();
 }}, '.popup_add');
+
+popupImage.setEventListeners();
+popupEditProfile.setEventListeners();
+popupAddNewPlace.setEventListeners();
 
 validatorFormEditProfile.enableValidation();
 validatorFormAddNewPlace.enableValidation();
+
 
 const cardList = new Section({
     items: initialCards.reverse(),
@@ -51,28 +59,28 @@ function createCard(name, link) {
     return cardElement;
 }
 
-function handleCardClick(image, title) {
-    const popupImage = new PopupWithImage('.popup_image');    
+function handleCardClick(image, title) {        
     popupImage.open(image, title);
 }
 
 
 function openPopupEditUser() {
     popupEditProfile.open();
-    userInfo.getUserInfo(nameInput, jobInput);
-    validatorFormEditProfile.resetErrorText();
-    validatorFormEditProfile.disableButton();
+    const info = userInfo.getUserInfo();
+    nameInput.value = info.user;
+    jobInput.value = info.job;
+    validatorFormEditProfile.resetValidation();
 }
 
 function openPopupAddNewPlace() {     
     popupAddNewPlace.open();
-    validatorFormAddNewPlace.resetErrorText();
-    validatorFormAddNewPlace.disableButton();    
+    validatorFormAddNewPlace.resetValidation();
 }
 
 
 buttonOpenPopupProfile.addEventListener('click', openPopupEditUser);
 buttonOpenPopupAddNewPlace.addEventListener('click', openPopupAddNewPlace);
+
 
 
 

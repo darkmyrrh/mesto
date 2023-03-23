@@ -43,7 +43,7 @@ export class FormValidator {
       this._setEventListeners();
   };
 
-  resetErrorText() {
+  resetValidation() {
     this._inputList.forEach((inputElement) => {
     this._hideError(inputElement);
     this.disableButton();
