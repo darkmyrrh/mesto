@@ -9,7 +9,7 @@ export default class Popup {
     }
     close() {        
         this._popup.classList.remove('popup_opened');
-        this._popup.removeEventListener('keydown', this._handleEscClose);        
+        document.removeEventListener('keydown', this._handleEscClose);        
     }
 
     _handleEscClose(e) {        
