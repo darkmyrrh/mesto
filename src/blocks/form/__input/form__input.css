@@ -1,5 +1,5 @@
 .form__input {
-    margin: 0 auto;
+    margin: 30px auto 0;
     padding: 0;
     width: 83%;
     border: none;
@@ -11,8 +11,12 @@
     line-height: 121%;
     
 }
-.form__input:last-of-type {
-    margin-top: 30px;
+.form__input:last-of-type {    
+    margin-bottom: 10px;
+}
+
+.form__input:first-of-type {
+    margin-top: 54px;
 }
 
 @media screen and (max-width: 499px) {
