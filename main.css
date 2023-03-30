@@ -27,11 +27,11 @@
 .popup__close{background:url(039f1f5203f653b4bacd.svg);background-size:100%;border:none;cursor:pointer;height:32px;margin:0;padding:0;position:absolute;right:-40px;top:-40px;width:32px}@media screen and (max-width:499px){.popup__close{height:20px;right:0;top:-36px;width:20px}}
 .popup_image{background:rgba(0,0,0,.9)}
 .form{display:flex;flex-direction:column;margin:0 auto;padding:0}
-.form__heading{font-size:24px;font-style:normal;font-weight:900;line-height:121%;margin:34px 64px 54px 36px;padding:0;width:83%}@media screen and (max-width:499px){.form__heading{font-size:18px;line-height:122%;margin:25px 22px 75px;width:84%}}
-.form__input{border:none;border-bottom:1px solid rgba(0,0,0,.2);font-size:14px;font-style:normal;font-weight:400;line-height:121%;margin:0 auto;padding:0 0 13px;width:83%}.form__input:last-of-type{margin-top:30px}@media screen and (max-width:499px){.form__input{width:84%}}
+.form__heading{font-size:24px;font-style:normal;font-weight:900;line-height:121%;margin:34px 64px 0 36px;padding:0;width:83%}@media screen and (max-width:499px){.form__heading{font-size:18px;line-height:122%;margin:25px 22px 75px;width:84%}}
+.form__input{border:none;border-bottom:1px solid rgba(0,0,0,.2);font-size:14px;font-style:normal;font-weight:400;line-height:121%;margin:30px auto 0;padding:0 0 13px;width:83%}.form__input:last-of-type{margin-bottom:10px}.form__input:first-of-type{margin-top:54px}@media screen and (max-width:499px){.form__input{width:84%}}
 
 
-.form__submit{background:#000;border:none;border-radius:2px;color:#fff;cursor:pointer;font-size:18px;font-style:normal;font-weight:400;line-height:122%;margin:48px auto 37px;min-height:50px;text-align:center;transition:opacity .3s linear;width:83%}.form__submit:hover{opacity:.8}@media screen and (max-width:499px){.form__submit{font-size:14px;line-height:121%;margin-bottom:25px;margin-top:45px;min-height:46px;width:84%}}
+.form__submit{background:#000;border:none;border-radius:2px;color:#fff;cursor:pointer;font-size:18px;font-style:normal;font-weight:400;line-height:122%;margin:38px auto 37px;min-height:50px;text-align:center;transition:opacity .3s linear;width:83%}.form__submit:hover{opacity:.8}@media screen and (max-width:499px){.form__submit{font-size:14px;line-height:121%;margin-bottom:25px;margin-top:45px;min-height:46px;width:84%}}
 .form__submit_inactive{background-color:#fff;border:1px solid #000;color:#000;opacity:20%}
 .form__input_type_error{border-bottom:1px solid red}
 .form__input-error{color:red;display:block;font-size:12px;font-style:normal;font-weight:400;line-height:125%;margin:5px 36px -35px;max-width:358px;min-height:32px;padding:0}@media screen and (max-width:499px){.form__input-error_active{max-width:238px}}
