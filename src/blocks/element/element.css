@@ -7,8 +7,8 @@
     color: black;
     max-width: 282px;
     display: grid;
-    grid-template-columns: 1fr min-content;
-    grid-auto-rows: 1fr max-content;
+    grid-template-columns: 1fr max-content;
+    grid-template-rows: 1fr min-content max-content;
     column-gap: 21px;
     position: relative;
 }

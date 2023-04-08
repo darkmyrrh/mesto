@@ -1,7 +1,9 @@
-.avatar {
+.profile__avatar {
     margin: 0;
     padding: 0;
     width: 120px;
     height: 120px;
     border-radius: 50%;
+    object-fit: cover;
+    z-index: 1;
 }

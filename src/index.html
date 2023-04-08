@@ -11,7 +11,10 @@
         </header>
         <main class="main">
             <section class="profile">
-                <img src="<%=require('./images/profile-avatar.jpg')%>" alt="Фото пользователя" class="avatar">
+                <button type="button" aria-label="Изменить" class="profile__edit-button">
+                    <img src="<%=require('./images/profile-avatar.jpg')%>" alt="Фото пользователя" class="profile__avatar">
+                    <div class="profile__edit-image"></div>
+                </button>
                 <div class="profile-info">
                     <h1 class="profile-info__name">Жак-Ив Кусто</h1>
                     <button type="button" aria-label="Редактировать" class="profile-info__edit-button root__button"></button>
@@ -68,12 +71,12 @@
                     </form>
                 </div>
             </section>
-            <section class="popup popup_update-avatar">
-                <div class="popup__container popup__container_update-avatar">
+            <section class="popup popup_change-avatar">
+                <div class="popup__container popup__container_change-avatar">
                     <button type="button" aria-label="Закрыть" class="popup__close root__button"></button>
-                    <form class="form" name="updateavatar" novalidate>
+                    <form class="form" name="changeavatar" novalidate>
                         <h2 class="form__heading">Обновить аватар</h2>
-                        <input type="url" name="link" class="form__input form__input_el_avatar" placeholder="Ссылка на картинку" required id="avatar-input">
+                        <input type="url" name="avatar" class="form__input form__input_el_avatar" placeholder="Ссылка на картинку" required id="avatar-input">
                         <span class="form__input-error avatar-input-error"></span>
                         <button type="submit" class="form__submit">Сохранить</button>
                     </form>
@@ -85,6 +88,7 @@
                 <img src="<%=require('./images/image.jpg')%>" alt="" class="element__image">
                 <h2 class="element__title"></h2>
                 <button type="button" aria-label="Нравится" class="element__like-button"></button>
+                <p class="element__likes"></p>
                 <button type="button" aria-label="Удалить" class="element__delete-button"></button>
             </article>
         </template>

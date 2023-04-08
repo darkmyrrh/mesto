@@ -23,10 +23,14 @@ export const config =  {
 };
 
 export const buttonOpenPopupProfile = document.querySelector('.profile-info__edit-button');
+export const buttonOpenPopupChangeAvatar = document.querySelector('.profile__edit-button');
 export const profileName = document.querySelector('.profile-info__name');
 export const profileDescription = document.querySelector('.profile-info__description');
+export const avatar = document.querySelector('.profile__avatar');
 export const nameInput = document.querySelector('.form__input_el_name');
 export const jobInput = document.querySelector('.form__input_el_job');
 export const formEditProfile = document.forms.editprofile;
 export const formAddNewPlace = document.forms.addnew;
+export const formConfirmDeleteCard = document.forms.confirm;
+export const formChangeAvatar = document.forms.changeavatar;
 export const buttonOpenPopupAddNewPlace = document.querySelector('.profile__add-button');

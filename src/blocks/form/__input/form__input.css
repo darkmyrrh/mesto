@@ -23,4 +23,7 @@
     .form__input {
         width: 84%;
     }
+    .form__input:first-of-type {
+        margin-top: 75px;
+    }
 }

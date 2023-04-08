@@ -9,4 +9,5 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    grid-row: span 2;
 }
